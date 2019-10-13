@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "author": "SuiteSpot Technology Inc.",
   "description": "A SaaS server for managing rental properties",
-  "main": "src/index.ts",
+  "main": "src/server.ts",
   "keywords": [],
   "license": "MIT",
   "scripts": {
     "dev:server": "nodemon --watch src --ignore 'src/**/*.schema.ts' --ext ts --exec npm start",
     "build": "tsc --project tsconfig.json --rootDir src --outDir dist",
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/server.ts",
     "test": "npm run build && ts-node node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=jasmine.json",
     "test:once": "npm run build && ts-node node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=jasmine.json || true",
     "test:coverage": "nyc npm run test:once"

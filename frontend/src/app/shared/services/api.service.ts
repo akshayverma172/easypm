@@ -12,20 +12,18 @@ export class ApiService {
   }
 
   public getApiCall(url: string, params?: any): Observable<any> {
+    url = this.apiBaseUrl + url;
+
     return this.get(url, params);
   }
 
-  public postApiCall(url: string, params: any): Observable<any> {
-    return this.post(url, params);
+  public postApiCall(url: string, query: any, params: any): Observable<any> {
+    url = this.apiBaseUrl + url;
+    return this.http.post(url, query, params);
   }
 
   private get(url: string, params?: any) {
     url = this.apiBaseUrl + url;
     return this.http.get(url, { params: params });
-  }
-
-  private post(url: string, params: any) {
-    url = this.apiBaseUrl + url;
-    return this.http.post(url, params);
   }
 }

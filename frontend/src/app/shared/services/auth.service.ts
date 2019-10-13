@@ -20,8 +20,9 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<boolean> {
+    const query = {};
     return this.apiService
-      .postApiCall('authenticate', { username, password })
+      .postApiCall('authenticate', query, { username, password })
       .pipe(
         map(result => {
           localStorage.setItem('access_token', result.token);
