@@ -12,17 +12,17 @@ import { PropertyService } from './shared/services/property.service';
 export class AppComponent implements OnInit {
   title = 'Easy Property Management';
 
-  properties: Property[] = [];
+  // properties: Property[] = [];
 
   constructor(private propertyService: PropertyService) {}
 
   ngOnInit(): void {
-    this.loadProperties();
+    // this.loadProperties();
   }
 
-  loadProperties() {
-    this.propertyService.getPropertyListings().subscribe(properties => {
-      this.properties = properties;
-    });
-  }
+  // loadProperties() {
+  //   this.propertyService.getPropertyListings().subscribe(properties => {
+  //     this.properties = properties;
+  //   });
+  // }
 }

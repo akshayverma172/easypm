@@ -1,0 +1,11 @@
+<p>
+  properties works!
+</p>
+<h2>Properties:</h2>
+<ul>
+  <li *ngFor="let prop of properties">
+    <h2>
+      <a [href]="'/properties/' + prop._id">{{ prop.name }}</a>
+    </h2>
+  </li>
+</ul>
