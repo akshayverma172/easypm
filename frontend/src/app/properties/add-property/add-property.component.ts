@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PropertyService } from '../../shared/services/property.service';
 
 @Component({
   selector: 'app-add-property',
@@ -9,20 +10,31 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddPropertyComponent implements OnInit {
   propertyForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private propertyService: PropertyService
+  ) {}
 
   ngOnInit() {
     this.propertyForm = this.fb.group({
-      name: ['', Validators.required],
-      address: ['', Validators.required],
-      floor: ['', Validators.required],
-      number: ['', Validators.required],
-      rent: ['', Validators.required],
-      vacant: ['', Validators.required]
+      name: ['test', Validators.required],
+      address: ['124 elbern', Validators.required],
+      floor: [' 2nd', Validators.required],
+      number: ['123', Validators.required],
+      rent: ['1500', Validators.required],
+      vacant: ['yes', Validators.required]
     });
   }
 
   submit() {
-    console.log(this.propertyForm);
+    console.log(this.propertyForm.value);
+
+    const details = { ...this.propertyForm.value };
+    console.log(details);
+    this.propertyService
+      .addPropertyListing(this.propertyForm.value)
+      .subscribe(result => {
+        console.log(result);
+      });
   }
 }

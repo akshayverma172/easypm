@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class ApiService {
@@ -19,7 +19,7 @@ export class ApiService {
 
   public postApiCall(url: string, query: any, params: any): Observable<any> {
     url = this.apiBaseUrl + url;
-    return this.http.post(url, query, params);
+    return this.http.post(url, query, { params });
   }
 
   private get(url: string, params?: any) {

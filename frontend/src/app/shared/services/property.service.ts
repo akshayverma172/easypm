@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { ApiService } from './api.service';
-import { Property } from '../model/property';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Property } from '../model/property';
+import { ApiService } from './api.service';
 
 @Injectable()
 export class PropertyService {
@@ -21,6 +21,7 @@ export class PropertyService {
   addPropertyListing(params) {
     const url = 'property/add';
     const query: any = {};
+    console.log(params, 'CHUTIYE');
     return this.apiService.postApiCall(url, query, params);
   }
 
