@@ -1,11 +1,9 @@
 import { PropertyDAO } from './property.dao';
 import { Property } from './property.model';
+// import {} from 'express'
 
 export class PropertyService {
-
-  constructor(
-    private dao = new PropertyDAO()
-  ) { }
+  constructor(private dao = new PropertyDAO()) {}
 
   public listProperties(
     query: any = {},
@@ -15,4 +13,7 @@ export class PropertyService {
     return this.dao.query(query, offset, limit);
   }
 
+  public addProperty(property: Property) {
+    return this.dao.insert(property);
+  }
 }

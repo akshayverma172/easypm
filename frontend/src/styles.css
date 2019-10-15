@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.flex-container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.flex-item {
+  flex-grow: 1;
+}
+
+.flex-container.auto div,
+.flex-container.auto li {
+  flex-grow: 1;
+}
+
+@media all and (max-width: 1000px) {
+  .navigation ul {
+    flex-wrap: wrap;
+  }
+
+  .navigation li {
+    flex: 1 1 50%;
+  }
+
+  .navigation .user {
+    flex: 1 1 33.33%;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .navigation li {
+    flex-basis: 100%;
+  }
+
+  .navigation .user {
+    flex-basis: 50%;
+  }
+}
+
+button.submit {
+  float: left;
+  border-radius: 6px !important;
+  margin: auto;
+  color: #000;
+  min-width: 97px;
+  background-color: #edeeef;
+  border: 0;
+  font-weight: 700;
+  padding: 13px 29px;
+  font-size: 16px;
+}

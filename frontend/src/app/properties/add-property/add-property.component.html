@@ -1,0 +1,33 @@
+<div class="addproperty">
+  <div class="form-head">
+    <h3>Add New Property</h3>
+  </div>
+  <form [formGroup]='propertyForm'
+        (ngSubmit)="submit()">
+    <input type='text'
+           class="form-control"
+           placeholder="Person Name"
+           formControlName="name" />
+    <input type='text'
+           placeholder="Address"
+           class="form-control"
+           formControlName="address" />
+    <input type='text'
+           placeholder="Floor"
+           class="form-control"
+           formControlName="floor" />
+    <input type='text'
+           placeholder="Number"
+           class="form-control"
+           formControlName="number" />
+    <input type='text'
+           placeholder="Monthly Rent($)"
+           class="form-control"
+           formControlName="rent" />
+    <input type='text'
+           class="form-control"
+           placeholder="Vacant"
+           formControlName="vacant" />
+    <button class="submit">Add Property</button>
+  </form>
+</div>
