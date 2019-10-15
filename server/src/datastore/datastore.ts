@@ -3,20 +3,27 @@ import * as _ from 'lodash';
 import * as path from 'path';
 import * as shortid from 'shortid';
 
-const datadir = path.join(__dirname, path.sep, '..', path.sep, '..', path.sep, 'data');
+const datadir = path.join(
+  __dirname,
+  path.sep,
+  '..',
+  path.sep,
+  '..',
+  path.sep,
+  'data'
+);
 
 export interface Identified {
   _id: string;
 }
 
 export class Collection<T> {
-
   private contents: T[];
 
   constructor(
     private collection: string,
     private collectionFile: string = path.join(datadir, `${collection}.json`)
-  ) { }
+  ) {}
 
   private filestore(): Promise<string> {
     return new Promise<string>((resolve, reject) => {
@@ -89,10 +96,15 @@ export class Collection<T> {
         return acc && value <= queryValue;
       } else if (key === '$regex') {
         if (typeof queryValue !== 'string') {
-          throw new Error(`$regex operator must provide a valid regular expression: invalid '${queryValue}'`)
+          throw new Error(
+            `$regex operator must provide a valid regular expression: invalid '${queryValue}'`
+          );
         }
         const parts = queryValue.split('/');
-        const regexp = parts.length === 2 ? new RegExp(parts[0], parts[1]) : new RegExp(parts[0]);
+        const regexp =
+          parts.length === 2
+            ? new RegExp(parts[0], parts[1])
+            : new RegExp(parts[0]);
         return acc && regexp.test(value);
       } else if (key === '$in') {
         if (!Array.isArray(queryValue)) {
@@ -159,7 +171,6 @@ export interface Database {
 }
 
 class datastore implements Database {
-
   private db: Database = this;
 
   constructor() {
@@ -180,8 +191,7 @@ class datastore implements Database {
   collection<T>(name: string): Collection<T> {
     return new Collection<T>(name);
   }
-
 }
 
 const ds = new datastore();
-export { ds as Datastore }
+export { ds as Datastore };

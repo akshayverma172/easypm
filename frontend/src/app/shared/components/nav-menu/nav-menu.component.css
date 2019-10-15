@@ -1,0 +1,15 @@
+a {
+  color: white;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-decoration: none;
+  background: rgb(238, 13, 13);
+  padding: 20px 5px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+a:hover {
+  background: rgba(238, 13, 13, 0.75);
+}
