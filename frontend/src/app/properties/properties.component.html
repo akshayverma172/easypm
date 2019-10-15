@@ -1,12 +1,17 @@
-<p>
-  properties works!
-</p>
-<h2>Properties:</h2>
-<ul class="flex-container">
-  <li *ngFor="let prop of properties"
-      class="flex-item">
-    <h2>
-      <a [href]="'/properties/' + prop._id">{{ prop.name }}</a>
-    </h2>
-  </li>
-</ul>
+<div class="props">
+  <h2>Properties:</h2>
+  <ul class="flex-container">
+    <li *ngFor="let prop of properties"
+        class="flex-item">
+      <h2>
+        <a [href]="'/properties/' + prop._id"
+           class="title">{{ prop.name }}</a>
+      </h2>
+      <div class="address">
+        <div class="label">Address:</div>{{prop.address}}
+      </div>
+      <a [href]="'/properties/' + prop._id"
+         class="title">View More Details</a>
+    </li>
+  </ul>
+</div>

@@ -27,10 +27,10 @@ export class AddPropertyComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.propertyForm.value);
+    // console.log(this.propertyForm.value);
 
     const details = { ...this.propertyForm.value };
-    console.log(details);
+    // console.log(details);
     this.propertyService
       .addPropertyListing(this.propertyForm.value)
       .subscribe(result => {

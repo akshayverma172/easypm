@@ -3,6 +3,11 @@ import { Request, Response } from 'express';
 
 const controller = express.Router();
 
-controller.post('/auth', async (req: Request, res: Response) => {});
+controller.post('/', async (req: Request, res: Response) => {
+  const query = req.query;
+  console.log(query);
+
+  res.status(200).send({ result: 'OK' });
+});
 
 export { controller as AuthController };

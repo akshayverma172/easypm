@@ -1,12 +1,12 @@
 import * as express from 'express';
 import { Request, Response } from 'express';
-import { Property, Unit } from './property.model';
+import { Property, Unit } from '../types';
 import { PropertyService } from './property.service';
 
 const propertyService = new PropertyService();
-const controller = express.Router();
+const router = express.Router();
 
-controller.post('/', async (req: Request, res: Response) => {
+router.post('/', async (req: Request, res: Response) => {
   const query = req.body;
 
   const properties = await propertyService.listProperties(
@@ -18,7 +18,7 @@ controller.post('/', async (req: Request, res: Response) => {
   res.status(200).send(properties);
 });
 
-controller.post('/add', async (req: Request, res: Response) => {
+router.post('/add', async (req: Request, res: Response) => {
   const { name, address, floor, number, rent, vacant } = req.query;
   const units: [Unit] = [{ floor, number, rent, vacant }];
   const property: Property = { address, name, units };
@@ -28,4 +28,8 @@ controller.post('/add', async (req: Request, res: Response) => {
   res.status(200).send('success');
 });
 
-export { controller as PropertyController };
+router.post('/mera', async (req: Request, res: Response) => {
+  res.status(200).send('mera loda');
+});
+
+export { router as PropertyController };
