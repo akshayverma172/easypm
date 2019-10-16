@@ -17,20 +17,20 @@ export class AddPropertyComponent implements OnInit {
 
   ngOnInit() {
     this.propertyForm = this.fb.group({
-      name: ['test', Validators.required],
-      address: ['124 elbern', Validators.required],
-      floor: [' 2nd', Validators.required],
-      number: ['123', Validators.required],
-      rent: ['1500', Validators.required],
-      vacant: ['yes', Validators.required]
+      name: ['', Validators.required],
+      address: ['', Validators.required],
+      floor: ['', Validators.required],
+      number: ['', Validators.required],
+      rent: ['', Validators.required],
+      vacant: ['', Validators.required]
     });
   }
 
   submit() {
-    console.log(this.propertyForm.value);
+    // console.log(this.propertyForm.value);
 
     const details = { ...this.propertyForm.value };
-    console.log(details);
+    // console.log(details);
     this.propertyService
       .addPropertyListing(this.propertyForm.value)
       .subscribe(result => {
