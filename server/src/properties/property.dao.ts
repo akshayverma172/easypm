@@ -1,5 +1,5 @@
 import { Collection, Database, Datastore } from '../datastore/datastore';
-import { Property } from './property.model';
+import { Property } from '../types';
 
 export class PropertyDAO {
   constructor(private db: Database = Datastore.getDB()) {}

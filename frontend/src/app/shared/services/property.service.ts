@@ -21,7 +21,6 @@ export class PropertyService {
   addPropertyListing(params) {
     const url = 'property/add';
     const query: any = {};
-    console.log(params, 'CHUTIYE');
     return this.apiService.postApiCall(url, query, params);
   }
 
