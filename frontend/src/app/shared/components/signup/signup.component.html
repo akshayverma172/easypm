@@ -2,15 +2,37 @@
   <h3>Sign Up</h3>
   <form [formGroup]="signupForm"
         (ngSubmit)="submit()">
-    <input type="text"
-           placeholder="Username"
-           formControlName="username" />
-    <input type="text"
-           placeholder="Password"
-           formControlName="password" />
-    <input type="text"
-           placeholder="confirmPassword"
-           formControlName="password" />
-    <button class="submit">Sign Up</button>
+    <div class="field">
+      <input type="text"
+             placeholder="Username"
+             required
+             formControlName="username" />
+      <div class="invalid-feedback">
+        {{displayMessage.username}}
+      </div>
+    </div>
+
+    <div class="field">
+      <input type="text"
+             placeholder="Password"
+             required
+             formControlName="password" />
+      <div class="invalid-feedback">
+        {{displayMessage.password}}
+      </div>
+    </div>
+
+    <div class="field">
+      <input type="text"
+             required
+             placeholder="confirmPassword"
+             formControlName="password" />
+      <div class="invalid-feedback">
+        {{displayMessage.confirmPassword}}
+      </div>
+    </div>
+
+    <button class="submit"
+            [disabled]="">Sign Up</button>
   </form>
 </div>

@@ -1,6 +1,5 @@
 import { PropertyDAO } from './property.dao';
-import { Property } from './property.model';
-// import {} from 'express'
+import { Property } from '../types';
 
 export class PropertyService {
   constructor(private dao = new PropertyDAO()) {}
@@ -17,3 +16,5 @@ export class PropertyService {
     return this.dao.insert(property);
   }
 }
+
+export const propertyService = new PropertyService();

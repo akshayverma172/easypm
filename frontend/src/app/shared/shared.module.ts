@@ -8,11 +8,12 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, ReactiveFormsModule],
   declarations: [LoginComponent, SignupComponent],
-  providers: [PropertyService, AuthService]
+  providers: [PropertyService, AuthService, UserService]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

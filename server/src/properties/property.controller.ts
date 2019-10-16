@@ -1,9 +1,8 @@
 import * as express from 'express';
 import { Request, Response } from 'express';
 import { Property, Unit } from '../types';
-import { PropertyService } from './property.service';
+import { propertyService } from './property.service';
 
-const propertyService = new PropertyService();
 const router = express.Router();
 
 router.post('/', async (req: Request, res: Response) => {

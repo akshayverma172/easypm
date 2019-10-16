@@ -19,7 +19,7 @@ export class PropertiesComponent implements OnInit {
   loadProperties() {
     this.propertyService.getPropertyListings().subscribe(props => {
       this.properties = props;
-      console.log(this.properties);
+      // console.log(this.properties);
     });
   }
 }
