@@ -6,6 +6,8 @@ import { propertyService } from './property.service';
 const router = express.Router();
 
 router.post('/', async (req: Request, res: Response) => {
+  console.log(req.headers.authorization);
+  // console.log(req.headers.referer);
   const query = req.body;
 
   const properties = await propertyService.listProperties(
@@ -25,10 +27,6 @@ router.post('/add', async (req: Request, res: Response) => {
   const result = await propertyService.addProperty(property);
 
   res.status(200).send('success');
-});
-
-router.post('/mera', async (req: Request, res: Response) => {
-  res.status(200).send('mera loda');
 });
 
 export { router as PropertyController };

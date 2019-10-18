@@ -4,13 +4,13 @@
     <li *ngFor="let prop of properties"
         class="flex-item">
       <h2>
-        <a [href]="'/properties/' + prop._id"
+        <a [routerLink]="['/properties', prop._id]"
            class="title">{{ prop.name }}</a>
       </h2>
       <div class="address">
         <div class="label">Address:</div>{{prop.address}}
       </div>
-      <a [href]="'/properties/' + prop._id"
+      <a [routerLink]="['/properties', prop._id]"
          class="title">View More Details</a>
     </li>
   </ul>

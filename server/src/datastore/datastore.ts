@@ -72,7 +72,7 @@ export class Collection<T> {
         if (typeof queryObj === 'object') {
           return this.executeConditions(value, queryObj);
         }
-        console.log(`vale: ${value} valq: ${queryObj}`);
+        // console.log(`vale: ${value} valq: ${queryObj}`);
         return acc && value === queryObj;
       }, true);
     });

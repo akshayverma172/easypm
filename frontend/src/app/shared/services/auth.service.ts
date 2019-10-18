@@ -19,19 +19,24 @@ export class AuthService {
     }
   }
 
-  login(username: string, password: string): Observable<boolean> {
+  public getToken(): string {
+    return localStorage.getItem('access_token');
+  }
+
+  public login(username: string, password: string): Observable<boolean> {
     const query = {};
     return this.apiService
       .postApiCall('authenticate', query, { username, password })
       .pipe(
         map(result => {
           localStorage.setItem('access_token', result.token);
+          this.loggedIn.next(true);
           return true;
         })
       );
   }
 
-  logout() {
+  public logout() {
     localStorage.clear();
     this.router.navigate(['/login']);
     return this.loggedIn.next(false);

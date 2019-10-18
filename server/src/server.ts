@@ -10,16 +10,7 @@ app.use('*', cors());
 
 app.use(express.json());
 
-// app.use(
-//   urlencoded({
-//     extended: true
-//   })
-// );
-// app.use(json());
-// Routes
-
 app.get('/ping', (req, res, next) => {
-  console.log('mera loda');
   res.send('OK');
 });
 app.use('/api/property', PropertyController);

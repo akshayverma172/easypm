@@ -13,7 +13,7 @@ controller.post('/', async (req: Request, res: Response) => {
   if (result.length > 0) {
     const userId = result[0]._id;
     const token = expressJwt.sign({ userId }, 'test', { expiresIn: '2h' });
-    res.status(200).send({ result: token });
+    res.status(200).send({ token });
   } else {
     res.status(200).send({ result: 'error' });
   }
