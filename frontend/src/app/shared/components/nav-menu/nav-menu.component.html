@@ -1,4 +1,4 @@
-<ul class="flex-container auto">
+<ul class="flex-container nav auto">
   <li>
     <a class="nav-link"
        routerLink="">Home</a>
@@ -7,18 +7,27 @@
     <a class="nav-link"
        routerLink="properties">Properties</a>
   </li>
-  <li>
-    <a class="nav-link"
-       routerLink="addproperty">
-      Add New Property
-    </a>
-  </li>
-  <li>
-    <a class="nav-link"
-       routerLink="login">Login</a>
-  </li>
-  <li>
-    <a class="nav-link"
-       routerLink="signup">Sign Up</a>
-  </li>
+
+  <ng-container *ngIf="!isAuthenticated">
+    <li>
+      <a class="nav-link"
+         routerLink="login">Login</a>
+    </li>
+    <li>
+      <a class="nav-link"
+         routerLink="signup">Sign Up</a>
+    </li>
+  </ng-container>
+  <ng-container *ngIf="isAuthenticated">
+    <li>
+      <a class="nav-link"
+         routerLink="addproperty">
+        Add New Property
+      </a>
+    </li>
+    <li>
+      <a class="nav-link"
+         routerLink="logout">Logout</a>
+    </li>
+  </ng-container>
 </ul>
