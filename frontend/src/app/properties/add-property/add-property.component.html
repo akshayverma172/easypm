@@ -1,33 +1,121 @@
 <div class="form">
+
   <div class="form-head">
     <h3>Add New Property</h3>
   </div>
   <form [formGroup]='propertyForm'
         (ngSubmit)="submit()">
-    <input type='text'
-           class="form-control"
-           placeholder="Person Name"
-           formControlName="name" />
-    <input type='text'
-           placeholder="Address"
-           class="form-control"
-           formControlName="address" />
-    <input type='text'
-           placeholder="Floor"
-           class="form-control"
-           formControlName="floor" />
-    <input type='text'
-           placeholder="Number"
-           class="form-control"
-           formControlName="number" />
-    <input type='text'
-           placeholder="Monthly Rent($)"
-           class="form-control"
-           formControlName="rent" />
-    <input type='text'
-           class="form-control"
-           placeholder="Vacant"
-           formControlName="vacant" />
-    <button class="submit">Add Property</button>
+
+    <div class="form-group">
+      <label for="name">Property Name</label>
+      <div class="control">
+        <input type='text'
+               id="name"
+               class="form-control"
+               placeholder="Property Name"
+               formControlName="name" />
+        <div class="invalid-feedback">
+          {{displayMessage.name}}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+
+      <label for="address">Address</label>
+      <div class="control">
+        <input type='text'
+               id="address"
+               placeholder="Address"
+               class="form-control"
+               formControlName="address" />
+        <div class="invalid-feedback">
+          {{displayMessage.address}}
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group unit">
+      <h4>Unit Details</h4>
+    </div>
+
+
+    <div formArrayName="units">
+      <div class="unit"
+           [formGroupName]="i"
+           *ngFor="let address of units.controls; let i=index">
+        <div class="form-group">
+          <label for="floorId">Floor</label>
+          <div class="control">
+            <input type='text'
+                   id="floorId"
+                   placeholder="Floor"
+                   class="form-control"
+                   formControlName="floor">
+            <div class="invalid-feedback">
+              {{displayMessage.floor}}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="number">#Number</label>
+          <div class="control">
+            <input type='text'
+                   placeholder="Number"
+                   class="form-control"
+                   formControlName="number" />
+            <div class="invalid-feedback">
+              {{displayMessage.number}}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="rent">Monthly Rent</label>
+          <div class="control">
+            <input type='text'
+                   placeholder="Monthly Rent($)"
+                   class="form-control"
+                   formControlName="rent" />
+            <div class="invalid-feedback">
+              {{displayMessage.rent}}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="vacant">Vacant</label>
+          <div class="control">
+            <input type='text'
+                   class="form-control"
+                   placeholder="Vacant"
+                   formControlName="vacant" />
+            <div class="invalid-feedback">
+              {{displayMessage.vacant}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="control"><input class="addUnit"
+               type="button"
+               (click)="addNewUnit()"
+               value="Add Unit" /></div>
+
+    </div>
+
+    <div class="form-group flexd">
+      <div></div>
+      <div class="control">
+        <button class="submit">Add Property</button>
+      </div>
+    </div>
+
   </form>
 </div>

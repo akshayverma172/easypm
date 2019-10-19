@@ -19,9 +19,9 @@ export class PropertyService {
     return this.apiService.postApiCall(url, query, { params });
   }
 
-  addPropertyListing(params) {
+  addPropertyListing(query: any = {}, params: any = {}) {
     const url = 'property/add';
-    const query: any = {};
+
     return this.apiService.postApiCall(url, query, params);
   }
 

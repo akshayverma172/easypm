@@ -20,10 +20,7 @@ router.post('/', async (req: Request, res: Response) => {
 });
 
 router.post('/add', async (req: Request, res: Response) => {
-  const { name, address, floor, number, rent, vacant } = req.query;
-  const units: [Unit] = [{ floor, number, rent, vacant }];
-  const property: Property = { address, name, units };
-
+  const property: Property = req.body;
   const result = await propertyService.addProperty(property);
 
   res.status(200).send('success');
