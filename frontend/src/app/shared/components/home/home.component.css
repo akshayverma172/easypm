@@ -1,0 +1,24 @@
+.home {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.home h2 {
+  color: white;
+  font-size: 3em;
+  font-family: proxima-bold;
+}
+
+.home a {
+  background: white;
+  border-radius: 4px;
+  padding: 5px 27px;
+  text-decoration: none;
+  font-family: proxima-medium;
+  font-size: 1.7em;
+  cursor: pointer;
+  color: black;
+}

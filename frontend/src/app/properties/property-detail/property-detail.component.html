@@ -1,30 +1,36 @@
 <div class="property"
      *ngIf="property">
   <div class="header">
-    Property Details: {{property.name}}
+    {{property.name}}
   </div>
-  <div>
-    <div class="label">Name:</div>
-    <div class="value">{{property.name}}</div>
-  </div>
-  <div>
-    <div class="label">Address:</div>
+  <div class="address">
+    <div class="label">
+      <h4>Address:</h4>
+    </div>
     <div class="value">{{property.address}}</div>
   </div>
+
   <div>
-    <div class="label"></div>
-    <div class="value"></div>
+    <div class="label labelunit">
+      <h3>Units:</h3>
+    </div>
+    <div class="value units">
+      <div class="unit"
+           *ngFor="let unit of property.units">
+        <div> <label>Floor:</label>
+          <div>{{unit.floor}}</div>
+        </div>
+        <div> <label>Number:</label>
+          <div>{{unit.number}}</div>
+        </div>
+        <div> <label>Rent $:</label>
+          <div>{{unit.rent}}</div>
+        </div>
+        <div> <label>Vacant:</label>
+          <div>{{unit.vacant}}</div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <div class="label"></div>
-    <div class="value"></div>
-  </div>
-  <div>
-    <div class="label"></div>
-    <div class="value"></div>
-  </div>
-  <div>
-    <div class="label"></div>
-    <div class="value"></div>
-  </div>
+
 </div>
