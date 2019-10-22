@@ -20,6 +20,7 @@ import { Validator } from '../../directive/validator';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { reject } from 'q';
+import { AuthGuard } from '../../auth/auth.guard';
 
 @Component({
   selector: 'app-signup',
@@ -41,7 +42,8 @@ export class SignupComponent implements OnInit, AfterViewInit, OnDestroy {
     private fb: FormBuilder,
     private userService: UserService,
     private toastService: ToastrService,
-    private router: Router
+    private router: Router,
+    private authGuard: AuthGuard
   ) {
     this.validationMessages = {
       username: {
@@ -64,6 +66,10 @@ export class SignupComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
+    if (localStorage.getItem('access_token')) {
+      this.router.navigate(['addproperty']);
+    }
+
     this.signupForm = this.fb.group({
       username: [
         '',
