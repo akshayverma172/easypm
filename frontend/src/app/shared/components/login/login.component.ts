@@ -18,6 +18,7 @@ import { Validator } from '../../directive/validator';
 import { Observable, fromEvent, merge, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { AuthGuard } from '../../auth/auth.guard';
 
 @Component({
   selector: 'app-login',
@@ -38,7 +39,8 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private toastService: ToastrService
+    private toastService: ToastrService,
+    private authGuard: AuthGuard
   ) {
     this.validationMessages = {
       username: {
@@ -54,6 +56,10 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
+    if (localStorage.getItem('access_token')) {
+      this.router.navigate(['properties']);
+    }
+
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(4)]],
       password: ['', [Validators.required, Validators.minLength(4)]]

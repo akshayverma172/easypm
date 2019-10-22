@@ -202,3 +202,23 @@ h4 {
 .main h2 {
   color: white;
 }
+
+@media only screen and (max-width: 600px) {
+  .props li {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .cont,
+  label {
+    font-size: 0.9em !important;
+  }
+
+  .property {
+    width: 100% !important;
+  }
+}
