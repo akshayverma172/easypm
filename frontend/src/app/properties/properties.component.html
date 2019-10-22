@@ -3,15 +3,28 @@
   <ul class="flex-container">
     <li *ngFor="let prop of properties"
         class="flex-item">
-      <h2>
-        <a [routerLink]="['/properties', prop._id]"
-           class="title">{{ prop.name }}</a>
-      </h2>
-      <div class="address">
-        <div class="label">Address:</div>{{prop.address}}
+      <div class="title">
+        <div>
+          <label>Property:</label>
+        </div>
+
+        <div class="cont">
+          <h4>
+            <a [routerLink]="['/properties', prop._id]"
+               class="title">{{ prop.name }}</a>
+          </h4>
+        </div>
       </div>
-      <a [routerLink]="['/properties', prop._id]"
-         class="title">View More Details</a>
+      <div class="address">
+        <div><label>Address:</label></div>
+        <div class="cont">{{prop.address}}</div>
+      </div>
+      <div>
+        <div></div>
+        <div><a [routerLink]="['/properties', prop._id]"
+             class="title more">View More Details</a></div>
+      </div>
+
     </li>
   </ul>
 </div>

@@ -44,6 +44,8 @@ button {
 }
 
 
+
+
 .flex-container {
   list-style: none;
   margin: 0;
@@ -111,14 +113,20 @@ button.submit:active {
   top: 1px;
 }
 
+button.submit:disabled {
+  opacity: 0.7;
+}
+
+
 
 .form {
+  padding-bottom: 16px;
   width: 494px;
   margin: auto;
   background: white;
-
   border-radius: 8px;
   margin-top: 16px;
+  border: 1px solid #f1eeee;
 }
 
 .ng-invalid.ng-touched:not(form):not(div) {
@@ -127,9 +135,11 @@ button.submit:active {
 
 
 .form-control,
-.form input[type='text'] {
+.form input[type='text'],
+.form input[type='password'] {
   display: block;
-  margin-bottom: 10px;
+
+  margin-bottom: 13px;
   width: 80%;
   height: 28px;
   padding: 2px 12px;
@@ -150,4 +160,45 @@ button.submit:active {
 
 .main {
   min-height: 100%;
+}
+
+.form-group label {
+  flex-grow: 2;
+  max-width: 150px;
+  line-height: 36px;
+}
+
+.form-group>div {
+  flex-grow: 2;
+}
+
+.form-group {
+  padding: 2px 22px;
+  display: flex;
+}
+
+.unit {
+  margin-bottom: 10px;
+}
+
+h4 {
+  margin: 0px;
+}
+
+.form-head {
+  padding: 1px 20px;
+  background: #f1f1f1;
+  border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+  border: 1px solid #d8d6d6;
+  margin-bottom: 10px;
+}
+
+.invalid-feedback {
+  max-width: 200px;
+  margin-top: -9px;
+  margin-bottom: 10px;
+}
+
+.main h2 {
+  color: white;
 }

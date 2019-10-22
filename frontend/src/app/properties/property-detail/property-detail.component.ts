@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PropertyService } from '../../shared/services/property.service';
-import { Property } from '../../shared/model/property';
+import { Property, Unit } from '../../shared/model/property';
 
 @Component({
   selector: 'app-property-detail',

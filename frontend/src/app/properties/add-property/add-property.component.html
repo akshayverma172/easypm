@@ -47,54 +47,61 @@
            [formGroupName]="i"
            *ngFor="let address of units.controls; let i=index">
         <div class="form-group">
-          <label for="floorId">Floor</label>
+          <label for="floorId"
+                 attr.for="{{'floor' + i}}">Floor</label>
           <div class="control">
             <input type='text'
-                   id="floorId"
+                   id="{{'floor' + i}}"
                    placeholder="Floor"
                    class="form-control"
                    formControlName="floor">
             <div class="invalid-feedback">
-              {{displayMessage.floor}}
+              {{displayMessage['floor'+i]}}
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="number">#Number</label>
+          <label for="number"
+                 attr.for="{{'number' + i}}">#Number</label>
           <div class="control">
             <input type='text'
+                   id="{{'number' + i}}"
                    placeholder="Number"
                    class="form-control"
                    formControlName="number" />
             <div class="invalid-feedback">
-              {{displayMessage.number}}
+              {{displayMessage['number'+i]}}
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="rent">Monthly Rent</label>
+          <label for="rent"
+                 attr.for="{{'rent' + i}}">Monthly Rent</label>
           <div class="control">
             <input type='text'
+                   id="{{'rent' + i}}"
                    placeholder="Monthly Rent($)"
                    class="form-control"
                    formControlName="rent" />
             <div class="invalid-feedback">
-              {{displayMessage.rent}}
+              {{displayMessage['rent'+i]}}
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="vacant">Vacant</label>
+          <label for="vacant"
+                 attr.for="{{'vacant' + i}}">Vacant</label>
           <div class="control">
             <input type='text'
+                   id="{{'vacant' + i}}"
                    class="form-control"
                    placeholder="Vacant"
                    formControlName="vacant" />
             <div class="invalid-feedback">
-              {{displayMessage.vacant}}
+              {{displayMessage['vacant'+i]}}
             </div>
           </div>
         </div>
@@ -107,13 +114,18 @@
                type="button"
                (click)="addNewUnit()"
                value="Add Unit" /></div>
+      <div class="control"><input class="addUnit"
+               type="button"
+               (click)="removeUnit()"
+               value="Remove Unit" /></div>
 
     </div>
 
     <div class="form-group flexd">
       <div></div>
       <div class="control">
-        <button class="submit">Add Property</button>
+        <button class="submit"
+                [disabled]="!propertyForm.valid">Add Property</button>
       </div>
     </div>
 
