@@ -28,8 +28,11 @@ export class AuthService {
     return this.apiService
       .postApiCall('authenticate', query, { username, password })
       .pipe(
-        map(result => {
-          localStorage.setItem('access_token', result.token);
+        map(res => {
+          if (res.result === 'error') {
+            return;
+          }
+          localStorage.setItem('access_token', res.token);
           this.loggedIn.next(true);
           return true;
         })

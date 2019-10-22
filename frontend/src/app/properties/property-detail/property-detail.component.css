@@ -1,16 +1,63 @@
 .property {
   text-align: center;
   width: 400px;
-  height: 150px;
   border-radius: 4px;
   background: white;
   margin: 10px auto;
-  -webkit-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  padding-bottom: 39px;
 }
 
 .header {
-  font-size: 19px;
-  font-weight: bold;
+  font-size: 26px;
   padding-top: 13px;
+  font-family: proxima-bold;
+}
+
+.property>div,
+.unit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unit>div {
+  display: flex;
+}
+
+.unit {
+  flex-direction: column;
+  border: 1px solid #c4c0c0;
+  border-radius: 5px;
+  padding: 11px 16px;
+  background: #efefef;
+  font-family: proxima-bold;
+}
+
+.unit label {
+  font-family: proxima-medium;
+  margin-right: 21px;
+  min-width: 62px;
+  flex-grow: 2;
+}
+
+.unit>div>div {
+  flex-grow: 1;
+  min-width: 52px;
+}
+
+.property>div {
+  margin-top: 13px;
+}
+
+.address .label {
+  margin-right: 16px;
+}
+
+.labelunit {
+  display: flex;
+  align-self: end;
+  margin-right: 23px;
 }

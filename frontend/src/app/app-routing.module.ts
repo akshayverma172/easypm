@@ -6,8 +6,10 @@ import { LoginComponent } from './shared/components/login/login.component';
 import { SignupComponent } from './shared/components/signup/signup.component';
 import { PropertyDetailComponent } from './properties/property-detail/property-detail.component';
 import { LogoutComponent } from './shared/components/logout/logout.component';
+import { HomeComponent } from './shared/components/home/home.component';
 
 const routes: Route[] = [
+  { path: '', pathMatch: 'full', component: HomeComponent },
   {
     path: 'properties',
     component: PropertiesComponent

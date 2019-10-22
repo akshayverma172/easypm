@@ -25,11 +25,37 @@ a.title {
   color: black;
 }
 
-.label {
-  float: left;
-  margin-left: 10px;
-}
 
 .address {
   font-weight: normal;
+}
+
+li.flex-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-item>div {
+  display: flex;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.more {
+  color: #1976d2 !important;
+  font-family: proxima-bold;
+
+  background: #cfddeb !important;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+label {
+  font-size: 19px !important;
+  font-family: proxima-medium;
+}
+
+.cont {
+  font-size: 19px;
+  margin-left: 11px;
 }

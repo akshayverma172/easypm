@@ -10,10 +10,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { LogoutComponent } from './components/logout/logout.component';
+import { HomeComponent } from './components/home/home.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule, ReactiveFormsModule],
-  declarations: [LoginComponent, SignupComponent, LogoutComponent],
+  imports: [CommonModule, HttpClientModule, ReactiveFormsModule, RouterModule],
+  declarations: [
+    LoginComponent,
+    SignupComponent,
+    LogoutComponent,
+    HomeComponent
+  ],
   providers: [PropertyService, AuthService, UserService]
 })
 export class SharedModule {

@@ -13,6 +13,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EasypmHttpInterceptor } from './shared/services/easypm-http-header';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from '../environments/environment';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { environment } from '../environments/environment';
       }
     }),
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: EasypmHttpInterceptor, multi: true }
