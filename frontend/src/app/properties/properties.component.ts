@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { PropertyService } from '../shared/services/property.service';
 import { Property } from '../shared/model/property';
 
