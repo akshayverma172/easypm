@@ -12,6 +12,7 @@ import { UserService } from './services/user.service';
 import { LogoutComponent } from './components/logout/logout.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
+import { PageInfoComponent } from './components/page-info/page-info.component';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, ReactiveFormsModule, RouterModule],

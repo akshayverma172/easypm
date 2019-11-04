@@ -4,7 +4,8 @@ import {
   ViewChildren,
   ElementRef,
   OnDestroy,
-  AfterViewInit
+  AfterViewInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import {
   FormGroup,
@@ -99,16 +100,16 @@ export class SignupComponent implements OnInit, AfterViewInit, OnDestroy {
       });
   }
 
-  validUserNotTaken(c: AbstractControl) {
-    return new Promise((resolve, reject) => {
-      this.userService.findUserByUsername(c.value).subscribe(res => {
-        if (res.result === 'ok') {
-          resolve(null);
-        } else {
-          resolve({ invalid: true });
-        }
-      });
-    });
+  async validUserNotTaken(c: AbstractControl) {
+    const res = await this.userService
+      .findUserByUsername(c.value)
+      .pipe(debounceTime(2000))
+      .toPromise();
+    if (res.result === 'ok') {
+      return null;
+    } else {
+      return { invalid: true };
+    }
   }
 
   validateConfirmPassword() {

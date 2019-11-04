@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-nav-menu',
@@ -8,15 +7,17 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent implements OnInit {
-  isAuthenticated: Boolean = false;
-  constructor(
-    private authService: AuthService,
-    public jwtService: JwtHelperService
-  ) {}
+  // isAuthenticated = false;
+  constructor(public authService: AuthService) {}
 
   ngOnInit() {
-    this.authService.loggedIn$.subscribe(isLoggedIn => {
-      this.isAuthenticated = isLoggedIn;
-    });
+    // this.authService.loggedIn$.subscribe(isLoggedIn => {
+    //   this.isAuthenticated = isLoggedIn;
+    // });
+    this.test();
+  }
+
+  async test() {
+    const test = await this.authService.loggedIn$.toPromise();
   }
 }

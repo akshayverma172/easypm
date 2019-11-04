@@ -4,7 +4,8 @@ import {
   ViewChildren,
   AfterViewInit,
   OnDestroy,
-  ElementRef
+  ElementRef,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import {
   FormBuilder,

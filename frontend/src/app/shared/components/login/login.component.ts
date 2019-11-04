@@ -4,7 +4,8 @@ import {
   ElementRef,
   ViewChildren,
   AfterViewInit,
-  OnDestroy
+  OnDestroy,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import {
   Validators,
