@@ -9,23 +9,23 @@ import { LogoutComponent } from './shared/components/logout/logout.component';
 import { HomeComponent } from './shared/components/home/home.component';
 
 const routes: Route[] = [
-  { path: '', pathMatch: 'full', component: HomeComponent },
-  {
-    path: 'properties',
-    component: PropertiesComponent
-  },
-  { path: 'properties/:id', component: PropertyDetailComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  {
-    path: 'addproperty',
-    component: AddPropertyComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'logout',
-    component: LogoutComponent
-  }
+	{ path: '', pathMatch: 'full', component: HomeComponent },
+	{
+		path: 'properties',
+		component: PropertiesComponent
+	},
+	{ path: 'properties/:id', component: PropertyDetailComponent },
+	{ path: 'login', component: LoginComponent },
+	{ path: 'signup', component: SignupComponent },
+	{
+		path: 'addproperty',
+		component: AddPropertyComponent,
+		canActivate: [ AuthGuard ]
+	},
+	{
+		path: 'logout',
+		component: LogoutComponent
+	}
 ];
 
 export const AppRoutingModule = RouterModule.forRoot(routes);

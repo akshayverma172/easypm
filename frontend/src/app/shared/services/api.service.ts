@@ -14,7 +14,7 @@ export class ApiService {
   public getApiCall(url: string, params?: any): Observable<any> {
     url = this.apiBaseUrl + url;
 
-    return this.get(url, params);
+    return this.get(url);
   }
 
   public postApiCall(url: string, query: any, params: any): Observable<any> {
